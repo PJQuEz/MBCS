@@ -1,0 +1,28 @@
+.home-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.home-container md-sidenav {
+  width: 300px;
+}
+
+.home-container .mat-sidenav-content,
+.home-container md-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.router-container {
+  overflow: auto;
+}
+
+.home-fab {
+  position: absolute;
+  left: 0vh;
+  top: 0vh;
+}
+
+app-side-nav {
+  width: 100%;
+}
