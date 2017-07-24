@@ -1,0 +1,31 @@
+.component-container {
+  display: flex;
+  flex-direction: column;
+  .menu-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .menu-item {
+      flex: 1;
+      padding: 4px;
+      flex-basis: 20%;
+   
+    }
+  }
+  .search-wrapper {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    .search-section,
+    .type-section {
+      flex: 1;
+      padding: 5px;
+      .search-card {
+        padding: 10px;
+        .full-input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

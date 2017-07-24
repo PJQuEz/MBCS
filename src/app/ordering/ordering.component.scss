@@ -1,0 +1,11 @@
+.order-wrapper{
+    display: flex;
+    justify-content: space-around;
+    .order-content--left{
+        flex: 3;
+    }
+    .order-content--right{
+        flex: 1;
+    }
+
+}
