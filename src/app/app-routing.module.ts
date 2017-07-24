@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageMenuComponent } from './manage-menu/manage-menu.component';
+import { OrderingComponent } from './ordering/ordering.component';
 
 
 export const appRoutes: Routes = [
@@ -15,6 +16,10 @@ export const appRoutes: Routes = [
   {
     path: 'list',
     component: ManageMenuComponent
+  },
+  {
+    path: 'ordering',
+    component: OrderingComponent
   }
 ];
 
