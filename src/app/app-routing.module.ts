@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ManageMenuComponent } from './manage-menu/manage-menu.component';
+import { TableComponent } from './table/table.component';
+import { Table2Component } from './table2/table2.component';
+
 
 
 export const appRoutes: Routes = [
@@ -10,11 +13,11 @@ export const appRoutes: Routes = [
   },
   {
     path: 'styles',
-    component: ManageMenuComponent
+    component: Table2Component
   },
   {
     path: 'list',
-    component: ManageMenuComponent
+    component: TableComponent
   }
 ];
 

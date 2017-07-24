@@ -1,0 +1,38 @@
+<div class="container">
+  <md-list>
+    <h1 md-subheader>
+      <md-icon>add</md-icon> Menu List
+    </h1>
+  </md-list>
+  <hr>
+  <br>
+
+  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'
+  />
+  <ngx-datatable #table class='dark selection-cell sortable' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [limit]="10"  [rows]='rows' [selected]="selected" [selectionType]="'cell'" (select)="onSelect($event)"
+    (activate)="onActivate($event)">
+            <ngx-datatable-footer>
+          <ng-template 
+            ngx-datatable-footer-template 
+            let-rowCount="rowCount"
+            let-pageSize="pageSize"
+            let-selectedCount="selectedCount"
+            let-curPage="curPage"
+            let-offset="offset">
+            <div style="padding: 5px 10px">
+              <div>
+                <strong>Summary</strong>: Gender: Female
+              </div>
+              <hr style="width:100%" />
+              <div>
+                Rows: {{rowCount}} |
+                Size: {{pageSize}} |
+                Current: {{curPage}} |
+                Offset: {{offset}}
+              </div>
+            </div>
+          </ng-template>
+        </ngx-datatable-footer>
+  </ngx-datatable>
+</div>
