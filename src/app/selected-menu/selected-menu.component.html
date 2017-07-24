@@ -1,3 +1,16 @@
-<p>
-  selected-menu works!
-</p>
+<h3 md-subheader>Order list</h3>
+<md-divider></md-divider>
+<md-list class="overflow">
+  <div class="item-list">
+    <md-list-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+      <md-icon md-list-icon>local_cafe</md-icon>
+      <h4 md-line>{{i}}</h4>
+      <p md-line> {{i}} </p>
+    </md-list-item>
+  </div>
+</md-list>
+<md-divider></md-divider>
+<div>
+<h5 md-subheader>Total :</h5>
+  
+</div>

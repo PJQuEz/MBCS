@@ -10,28 +10,40 @@ $test-size: "only screen and (min-width: 843px)";
   .component-container {
     display: flex;
     flex-direction: column;
-    .menu-wrapper {
-      padding: 2px;
-      display: flex;
-      flex-flow: row wrap;
-      .menu-item {
-        flex-basis: 23%;
-        max-width: 23%;
-        margin: 4px;
+    .overflow {
+      overflow: auto;
+      padding-left: 4%;
+      .menu-wrapper {
+        height: calc(100vh - 80px);
+        padding: 2px;
+        display: flex;
+        flex-flow: row wrap;
+        .menu-item {
+          flex-basis: 23%;
+          max-width: 23%;
+          margin: 4px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
       }
     }
     .search-wrapper {
       display: flex;
-      flex: 1;
       justify-content: space-around;
       .search-section,
       .type-section {
         flex: 1;
         padding: 5px;
         .search-card {
+          flex-wrap: nowrap;
           padding: 10px;
-          .full-input {
-            width: 100%;
+          display: flex;
+          ._full-input{
+            width:100%;
+          }
+          ._50-input{
+            width: 49.5%;
           }
         }
       }

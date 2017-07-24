@@ -1,0 +1,9 @@
+.overflow {
+  background: #fff;
+  width: 100%;
+  overflow: auto;
+  .item-list {
+        height: calc(100vh - 80px);
+  }
+}
+

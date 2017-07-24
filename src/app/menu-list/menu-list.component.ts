@@ -12,4 +12,7 @@ export class MenuListComponent implements OnInit {
   ngOnInit() {
   }
 
+  selectProduct(item) {
+    console.log(item);
+  }
 }
