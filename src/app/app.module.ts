@@ -14,6 +14,9 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { ManageMenuComponent } from './manage-menu/manage-menu.component';
 import { TableComponent } from './table/table.component';
 import { Table2Component } from './table2/table2.component';
+import { OrderingComponent } from './ordering/ordering.component';
+import { SelectedMenuComponent } from './selected-menu/selected-menu.component';
+import { MenuListComponent } from './menu-list/menu-list.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { Table2Component } from './table2/table2.component';
     ManageMenuComponent,
     TableComponent,
     Table2Component,
+    OrderingComponent,
+    SelectedMenuComponent,
+    MenuListComponent
   ],
   imports: [
     BrowserModule,

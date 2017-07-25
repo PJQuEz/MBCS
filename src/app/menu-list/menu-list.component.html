@@ -1,0 +1,38 @@
+  <div class="component-container"> 
+  <!-- BEGIN SEARCH BAR  -->
+  <div class="search-wrapper">
+    <!-- BEGIN Search input  -->
+    <div class="search-section">
+      <md-card class="search-card">
+        <md-card-content>
+          <md-input-container class="full-input">
+            <input mdInput placeholder="Search" type="search" >
+          </md-input-container>
+        </md-card-content>
+      </md-card>
+    </div>
+    <!-- END Search input  -->
+    <!-- BEGIN Type input  -->
+    <div class="type-section">
+      <md-select placeholder="Product Type">
+        <md-option *ngFor="let state of [1,2,3,4,5]" [value]="state">{{ state }}</md-option>
+      </md-select>
+    </div>
+    <!-- END Type input  -->
+  </div>
+  <!-- END SEARCH BAR  -->
+  <!-- BEGIN PRODUCT LIST  -->
+   <div class="menu-wrapper">
+    <div class="menu-item" *ngFor="let i of [1,2,3,4,5,6,7,8]">
+      <md-card class="example-card">
+        <img md-card-image src="assets/IU.png">
+        <md-card-content>
+          <p>
+           Price:999
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div> 
+  <!-- END PRODUT LIST  -->
+</div>   
