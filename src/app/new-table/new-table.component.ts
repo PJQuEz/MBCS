@@ -17,6 +17,15 @@ export class NewTableComponent implements OnInit {
     { name: 'Austin', gender: 'Male', company: 'Swimlane' },
     { name: 'Dany', gender: 'Male', company: 'KFC' },
     { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { name: 'Molly', gender: 'Female', company: 'Burger King' },
   ];
   temp = [];
 
