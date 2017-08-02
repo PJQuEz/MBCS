@@ -1,0 +1,35 @@
+<div>
+  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'
+  />
+  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [limit]="10" [rows]='rows'>
+
+    <ngx-datatable-column name="Name">
+      <ng-template let-column="column" ngx-datatable-header-template>
+        {{column.name}}
+      </ng-template>
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <strong>{{value}}</strong>
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    <ngx-datatable-column name="Gender" headerClass="is-gender">
+      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">{{column.name}}</span>
+      </ng-template>
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        My name is: <i [innerHTML]="row['name']"></i> and <i>{{value}}</i>
+        <div>{{joke}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Company">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+
+        <button md-raised-button id="Continue" class="button-width" color="primary" *ngIf="row.company== 'KFC'" (click)="clickme(row)">Continue </button>        :{{row['company']}}
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+</div>

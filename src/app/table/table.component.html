@@ -1,38 +1,42 @@
-<div class="container">
-  <md-list>
-    <h1 md-subheader>
-      <md-icon>add</md-icon> Menu List
-    </h1>
-  </md-list>
-  <hr>
-  <br>
+<div class="example-container mat-elevation-z8">
+  <md-table #table [dataSource]="dataSource">
 
-  <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'
-  />
-  <ngx-datatable #table class='dark selection-cell sortable' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
-    [rowHeight]="'auto'" [limit]="10"  [rows]='rows' [selected]="selected" [selectionType]="'cell'" (select)="onSelect($event)"
-    (activate)="onActivate($event)">
-            <ngx-datatable-footer>
-          <ng-template 
-            ngx-datatable-footer-template 
-            let-rowCount="rowCount"
-            let-pageSize="pageSize"
-            let-selectedCount="selectedCount"
-            let-curPage="curPage"
-            let-offset="offset">
-            <div style="padding: 5px 10px">
-              <div>
-                <strong>Summary</strong>: Gender: Female
-              </div>
-              <hr style="width:100%" />
-              <div>
-                Rows: {{rowCount}} |
-                Size: {{pageSize}} |
-                Current: {{curPage}} |
-                Offset: {{offset}}
-              </div>
-            </div>
-          </ng-template>
-        </ngx-datatable-footer>
-  </ngx-datatable>
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container cdkColumnDef="userId">
+      <md-header-cell *cdkHeaderCellDef > ID </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.id}} </md-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container cdkColumnDef="progress">
+      <md-header-cell *cdkHeaderCellDef> Progress </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.progress}}% </md-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container cdkColumnDef="userName">
+      <md-header-cell *cdkHeaderCellDef> Name </md-header-cell>
+      <md-cell *cdkCellDef="let row"> <img md-card-image src="{{row.name}}"> </md-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container cdkColumnDef="color">
+      <md-header-cell *cdkHeaderCellDef> Color </md-header-cell>
+      <md-cell *cdkCellDef="let row" [style.color]="row.color"> {{row.color}} </md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
+
+  <md-paginator #paginator
+                [length]="exampleDatabase.data.length"
+                [pageIndex]="0"
+                [pageSize]="25"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+  </md-paginator>
 </div>
+

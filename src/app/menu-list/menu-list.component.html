@@ -1,38 +1,44 @@
-  <div class="component-container"> 
+<div class="component-container">
   <!-- BEGIN SEARCH BAR  -->
   <div class="search-wrapper">
-    <!-- BEGIN Search input  -->
     <div class="search-section">
       <md-card class="search-card">
-        <md-card-content>
-          <md-input-container class="full-input">
-            <input mdInput placeholder="Search" type="search" >
-          </md-input-container>
+        <md-card-content class="_full-input">
+          <!-- BEGIN Search input  -->
+          <!-- <div class="search-card-item"> -->
+            <md-input-container class="_50-input">
+              <input mdInput placeholder="Search" type="search">
+            </md-input-container>
+          <!-- </div> -->
+
+          <!-- END Search input  -->
+          <!-- BEGIN Type input  -->
+          <!-- <div class="search-card-item"> -->
+            <md-select placeholder="Product Type" class="_50-input">
+              <md-option *ngFor="let state of [1,2,3,4,5]" [value]="state">{{ state }}</md-option>
+            </md-select>
+          <!-- </div> -->
+          <!-- END Type input  -->
         </md-card-content>
       </md-card>
     </div>
-    <!-- END Search input  -->
-    <!-- BEGIN Type input  -->
-    <div class="type-section">
-      <md-select placeholder="Product Type">
-        <md-option *ngFor="let state of [1,2,3,4,5]" [value]="state">{{ state }}</md-option>
-      </md-select>
-    </div>
-    <!-- END Type input  -->
+
   </div>
   <!-- END SEARCH BAR  -->
   <!-- BEGIN PRODUCT LIST  -->
-   <div class="menu-wrapper">
-    <div class="menu-item" *ngFor="let i of [1,2,3,4,5,6,7,8]">
-      <md-card class="example-card">
-        <img md-card-image src="assets/IU.png">
-        <md-card-content>
-          <p>
-           Price:999
-          </p>
-        </md-card-content>
-      </md-card>
+  <div class="overflow">
+    <div class="menu-wrapper">
+      <div class="menu-item" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]">
+        <md-card class="example-card" (click)="selectProduct(i)">
+          <img md-card-image src="assets/IU.png">
+          <md-card-content>
+            <p>
+              Name:{{i}}
+            </p>
+          </md-card-content>
+        </md-card>
+      </div>
     </div>
-  </div> 
+  </div>
   <!-- END PRODUT LIST  -->
-</div>   
+</div>

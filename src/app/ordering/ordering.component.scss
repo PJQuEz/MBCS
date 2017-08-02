@@ -1,15 +1,21 @@
-.order-wrapper{
-    display: flex;
-    justify-content: space-around;
-    .order-content--left{
-        flex: 3;
+.order-wrapper {
+  display: flex;
+  justify-content: space-around;
+  .order-content--left {
+    flex: 3;
+  }
+  .order-content--right {
+    flex: 1;
+    background-color: #fff;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    app-selected-menu {
+      font-family: Roboto, "Helvetica Neue", sans-serif;
     }
-    .order-content--right{
-        flex: 1;
+    .order-content--right {
+      flex: 1;
     }
-
-}
-
-.container {
-  padding: 25px;
+  }
+  .container {
+    padding: 25px;
+  }
 }
