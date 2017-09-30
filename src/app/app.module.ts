@@ -1,7 +1,7 @@
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
@@ -18,6 +18,22 @@ import { SelectedMenuComponent } from './selected-menu/selected-menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
 import { TableComponent } from './table/table.component';
 import { NewTableComponent } from './new-table/new-table.component';
+import { TableMenuComponent } from './table-menu/table-menu.component';
+import { TableIngredientComponent } from './table-ingredient/table-ingredient.component';
+import { TableBranchComponent } from './table-branch/table-branch.component';
+import { TableBranchManagerComponent } from './table-branch-manager/table-branch-manager.component';
+import { TableEmployeeComponent } from './table-employee/table-employee.component';
+import { ManageBranchComponent } from './manage-branch/manage-branch.component';
+import { ManageBranchManagerComponent } from './manage-branch-manager/manage-branch-manager.component';
+import { ManageIngredientComponent } from './manage-ingredient/manage-ingredient.component';
+import { ManageEmployeeComponent } from './manage-employee/manage-employee.component';
+import { DataService } from './data.service';
+import { EditComponent } from './edit/edit.component';
+import { EditMenuComponent } from './edit-menu/edit-menu.component';
+import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { EditBranchManageComponent } from './edit-branch-manage/edit-branch-manage.component';
+import { EditBranchComponent } from './edit-branch/edit-branch.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +44,22 @@ import { NewTableComponent } from './new-table/new-table.component';
     SelectedMenuComponent,
     MenuListComponent,
     TableComponent,
-    NewTableComponent
+    NewTableComponent,
+    TableMenuComponent,
+    TableIngredientComponent,
+    TableBranchComponent,
+    TableBranchManagerComponent,
+    TableEmployeeComponent,
+    ManageBranchComponent,
+    ManageBranchManagerComponent,
+    ManageIngredientComponent,
+    ManageEmployeeComponent,
+    EditComponent,
+    EditMenuComponent,
+    EditIngredientComponent,
+    EditEmployeeComponent,
+    EditBranchManageComponent,
+    EditBranchComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +70,10 @@ import { NewTableComponent } from './new-table/new-table.component';
     DndModule.forRoot(),
     NgxDatatableModule,
     Ng2SmartTableModule,
-    CdkTableModule
+    CdkTableModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
