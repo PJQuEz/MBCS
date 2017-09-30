@@ -1,33 +1,47 @@
+<div class="container">
 <div class="table-container">
+  <md-select placeholder="Type" (change)="test($event)">
+    <md-option *ngFor="let type of types" [value]="type.value">
+      {{ type.name }}
+    </md-option>
+  </md-select>
   <input class="fliter" type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...' (keyup)='updateFilter($event)'
   />
+  
   <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
-    [rowHeight]="'auto'" [limit]="10" [rows]='rows'>
+    [rowHeight]="'auto'" [limit]="10" [rows]='rows' [messages]="messages">
 
-    <ngx-datatable-column name="Name">
-      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
-        <span (click)="sort()"> {{column.name}}</span>
+    <ngx-datatable-column *ngFor=" let s of columns " [name]="s.name">
+      <ng-template  let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">{{s.name}} </span>
       </ng-template>
       <ng-template let-value="value" ngx-datatable-cell-template>
-        <strong>{{value}}</strong>
+        <div>{{value}}</div>
+       <!-- <img md-card-image src="https://s-media-cache-ak0.pinimg.com/736x/47/11/7a/47117a44aaff25ea8341d14adde482ec--picture-editor-photo-editor.jpg"> -->
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column name="Gender" headerClass="is-gender">
+    <!-- <ngx-datatable-column name="Gender" headerClass="is-gender">
       <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
         <span (click)="sort()">{{column.name}}</span>
       </ng-template>
       <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-        My name is: <i [innerHTML]="row['name']"></i> and <i>{{value}}</i>
+        My name is: <i [innerHTML]="row['name']"></i> and <i>{{row.name}}</i>
         <div>{{joke}}</div>
       </ng-template>
-    </ngx-datatable-column>
+    </ngx-datatable-column> -->
 
-    <ngx-datatable-column name="Company">
+    <ngx-datatable-column name="Edit">
       <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-        <button md-raised-button id="Continue" class="button-width" color="primary" *ngIf="row.company== 'KFC'" (click)="clickme(row)">Continue </button>        :{{row['company']}}
+        <button md-raised-button id="Continue" class="button-width" color="primary"  (click)="clickme(row)"> Edit </button> 
       </ng-template>
-    </ngx-datatable-column>
+    </ngx-datatable-column> 
+        <ngx-datatable-column name="Delete">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button md-raised-button id="Continue" class="button-width" color="primary"  (click)="clickme(row)"> Delete </button> 
+      </ng-template>
+    </ngx-datatable-column> 
 
   </ngx-datatable>
+</div>
 </div>

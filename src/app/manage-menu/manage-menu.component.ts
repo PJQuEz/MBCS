@@ -1,37 +1,52 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as _ from 'lodash';
+import { MENUS } from '../data';
+import { DataService } from '../data.service';
+import { FormControl, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const NAME_REGEX = /^[a-zA-Z0-9.-\s]*$/;
+const NUMBER_REGEX = /^[0-9.]*$/;
 @Component({
   selector: 'app-manage-menu',
   templateUrl: './manage-menu.component.html',
   styleUrls: ['./manage-menu.component.scss']
 })
 export class ManageMenuComponent implements OnInit {
+  nameFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(NAME_REGEX)]);
+
+  numberFormControl = new FormControl('', [
+    Validators.required,
+    Validators.pattern(NUMBER_REGEX)]);
+
   types = [
-    { value: 'brewing', name: 'Brewing' },
-    { value: 'non brewing', name: 'Non-brewing' }
+    { value: 'Brewing', name: 'Brewing' },
+    { value: 'Non-brewing', name: 'Non-brewing' }
   ];
   p = {
-    'name': 'qq',
+    'name': '',
     'type': '',
-    'pic': ''
+    'price': '',
+    'cost': ''
   };
+  img2;
   nCost = 0;
   hCost = 0;
   pCost = 0;
   tCost = 0;
   availableProducts: Array<Product> = [];
   shoppingBasket: Array<Product2> = [];
-
-  constructor() {
-    this.availableProducts.push(new Product('Coffee', 'normal', 35));
-    this.availableProducts.push(new Product('Coffee', 'high', 90));
-    this.availableProducts.push(new Product('Coffee', 'premium', 12));
-    this.availableProducts.push(new Product('Sugar', 'normal', 60));
-    this.availableProducts.push(new Product('Milk', 'normal', 45));
-    this.availableProducts.push(new Product('Milk', 'high', 65));
-    this.availableProducts.push(new Product('Milk', 'premium', 45));
+  constructor(private dataService: DataService,  private router: Router) {
+    this.availableProducts.push(new Product('Coffee', 'normal', 10));
+    this.availableProducts.push(new Product('Coffee', 'high', 20));
+    this.availableProducts.push(new Product('Coffee', 'premium', 30));
+    this.availableProducts.push(new Product('Milk', 'normal', 10));
+ 
   }
 
   ngOnInit() {
@@ -232,6 +247,29 @@ export class ManageMenuComponent implements OnInit {
 
     });
   }
+
+  test333(event) {
+    let file = event.target.files[0];
+    let fileName = file.name;
+    this.img2 = file.name;
+    console.log(fileName);
+  }
+  edit() {
+    if (this.p.type === 'Non-brewing') {
+      this.dataService.addMenu({
+        picture: '../../assets/image/'
+        + this.img2, name: this.p.name, type: this.p.type, price: this.p.price, cost: this.p.cost
+      });
+    }
+    else {
+      this.dataService.addMenu({
+        picture: '../../assets/image/'
+        + this.img2, name: this.p.name, type: this.p.type, price: this.p.price, cost: this.nCost
+      });
+    }
+    this.router.navigate(['menu']);
+  }
+
 
 }
 

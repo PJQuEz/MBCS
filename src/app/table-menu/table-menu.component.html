@@ -1,0 +1,47 @@
+ <!-- <app-table  [rows]="rows" [columns]="columns" ></app-table>  -->
+ <div class="container">
+        <div class="table-container">
+          <md-select placeholder="Type" (change)="searchFilter()" [(ngModel)]="searchSelect">
+            <md-option *ngFor="let type of types" [value]="type.value">
+              {{ type.name }}
+            </md-option>
+          </md-select>
+      
+          <input class="fliter" type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Type to filter the name column...'
+            (keyup)='searchFilter()' [(ngModel)]="search"/>
+            &nbsp;
+            <button md-raised-button id="Continue" class="button-width" color="primary" [routerLink]="['add']"> ADD </button>
+            
+          <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [limit]="10" [rows]='rows' [messages]="messages">
+      
+            <ngx-datatable-column *ngFor=" let s of columns " [name]="s.name">
+              <ng-template let-sort="sortFn" ngx-datatable-header-template>
+                <span (click)="sort()">{{s.name}} </span>
+              </ng-template>
+              <ng-template let-value="value" *ngIf="s.name === 'picture'" ngx-datatable-cell-template>
+                <md-card class="place-img">
+                  <img md-card-image [src]="'../../assets/image/' + value">
+                </md-card>
+              </ng-template>
+              <ng-template let-value="value" *ngIf="s.name !== 'picture'" ngx-datatable-cell-template>
+                <div>{{value}}</div>
+              </ng-template>
+            </ngx-datatable-column>
+      
+            <ngx-datatable-column name="Edit">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <button md-raised-button id="Continue" class="button-width" color="primary" (click)="edit(row)"> Edit </button>
+              </ng-template>
+            </ngx-datatable-column>
+      
+            <ngx-datatable-column name="Delete">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <button md-raised-button id="Continue" class="button-width" color="primary" (click)="delete(row)"> Delete </button>
+              </ng-template>
+            </ngx-datatable-column>
+      
+          </ngx-datatable>
+        </div>
+      </div>
+      
