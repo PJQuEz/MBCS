@@ -7,12 +7,16 @@ import { MdDialogRef } from '@angular/material';
   styleUrls: ['./modal-ordering.component.scss']
 })
 export class ModalOrderingComponent implements OnInit {
-
+  orderDetails: any;
   constructor(
     private dialogRef: MdDialogRef<any>
     ) { }
 
-  ngOnInit() {
+  ngOnInit() {    this.orderDetails = {
+    amount: 1,
+    grade: 'normal',
+    sweet: 'normal'
+  };
   }
 
 }

@@ -19,7 +19,7 @@ export class TestComponent implements OnInit {
   openDialog() {
     this.dialogRef = this.dialog.open(ModalOrderingComponent, {
       disableClose: false,
-      width: '450px'
+      width: '50%',
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
