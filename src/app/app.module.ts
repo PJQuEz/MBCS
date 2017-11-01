@@ -34,6 +34,11 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { EditBranchManageComponent } from './edit-branch-manage/edit-branch-manage.component';
 import { EditBranchComponent } from './edit-branch/edit-branch.component';
+import { ClockingComponent } from './clocking/clocking.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentListComponent } from './payment-list/payment-list.component';
+import { ModalOrderingComponent } from './modal-ordering/modal-ordering.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,12 @@ import { EditBranchComponent } from './edit-branch/edit-branch.component';
     EditIngredientComponent,
     EditEmployeeComponent,
     EditBranchManageComponent,
-    EditBranchComponent
+    EditBranchComponent,
+    ClockingComponent,
+    PaymentComponent,
+    PaymentListComponent,
+    ModalOrderingComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +82,9 @@ import { EditBranchComponent } from './edit-branch/edit-branch.component';
     Ng2SmartTableModule,
     CdkTableModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    ModalOrderingComponent
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

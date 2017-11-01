@@ -19,6 +19,12 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { EditBranchManageComponent } from './edit-branch-manage/edit-branch-manage.component';
 import { EditBranchComponent } from './edit-branch/edit-branch.component';
+import { ClockingComponent } from './clocking/clocking.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentListComponent } from './payment-list/payment-list.component';
+import { ModalOrderingComponent } from './modal-ordering/modal-ordering.component';
+import { TestComponent } from './test/test.component';
+
 
 
 export const appRoutes: Routes = [
@@ -36,7 +42,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'ordering',
-    component: OrderingComponent
+    component: TestComponent
   },
   {
     path: 'menu',
@@ -97,6 +103,18 @@ export const appRoutes: Routes = [
   {
     path: 'employee/edit/:id',
     component: EditEmployeeComponent
+  },
+  {
+    path: 'clocking',
+    component: ClockingComponent
+  },
+  {
+    path: 'payment',
+    component: PaymentComponent
+  },
+  {
+    path: 'payment/list/:id',
+    component: PaymentListComponent
   }
 ];
 
