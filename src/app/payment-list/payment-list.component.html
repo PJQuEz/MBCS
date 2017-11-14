@@ -21,9 +21,19 @@
             <img md-card-image [src]="'../../assets/image/' + value">
           </md-card>
         </ng-template>
-        <ng-template let-value="value" *ngIf="s.name !== 'picture'" ngx-datatable-cell-template>
-          <div>{{value}}</div>
+        <ng-template let-value="value" *ngIf="s.name === 'Payment'" ngx-datatable-cell-template>
+          <div (click)="openDialog1()" >{{value}}</div>
         </ng-template>
+        <ng-template let-value="value" *ngIf="s.name === 'Duration'" ngx-datatable-cell-template>
+            <div (click)="openDialog2()" >{{value}}</div>
+          </ng-template>
+        <!-- <ng-template let-value="value" *ngIf="s.name === 'Payment'" ngx-datatable-cell-template>
+            <div (click)="test()">{{value}} qq</div>
+          </ng-template>
+          <ng-template let-value="value" *ngIf="s.name === 'Duration'" ngx-datatable-cell-template>
+              <div>{{value}}</div>
+            </ng-template> -->
+            
       </ngx-datatable-column>
 
      

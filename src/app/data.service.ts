@@ -5,8 +5,8 @@ import { INGREDIENT } from './data';
 import { EMPLOYEE } from './data';
 import { BRANCHMENAGER } from './data';
 import { BRANCH } from './data';
-
-
+import { SELECTED } from './data';
+import { CLOCK } from './data';
 
 @Injectable()
 export class DataService {
@@ -69,7 +69,6 @@ export class DataService {
         BRANCHMENAGER.splice(index, 1);
     }
     getBRANCH() {
-
         return BRANCH;
     }
     setBRANCH(id, value) {
@@ -83,5 +82,34 @@ export class DataService {
     }
     deleteBRANCH(index) {
         BRANCH.splice(index, 1);
+    }
+     getSELECTED() {
+        return SELECTED;
+    }
+    setSELECTED(id, value) {
+        SELECTED[id] = value;
+    }
+
+    addSELECTED(menu) {
+        SELECTED.push(menu);
+    }
+    deleteSELECTED(index) {
+        SELECTED.splice(index, 1);
+    }
+    getCLOCK() {
+        return CLOCK;
+    }
+    getCLOCKID(id) {
+        return CLOCK[id];
+    }
+    setCLOCK(id, value) {
+        CLOCK[id] = value;
+    }
+
+    addCLOCKD(menu) {
+        CLOCK.push(menu);
+    }
+    deleteCLOCK(index) {
+        CLOCK.splice(index, 1);
     }
 }

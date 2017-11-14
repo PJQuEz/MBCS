@@ -5,7 +5,12 @@ import { DatatableComponent } from '@swimlane/ngx-datatable/src/components/datat
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { EMPLOYEE } from '../data';
+import { CLOCK } from '../data';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { ModalOrderingComponent } from '../modal-ordering/modal-ordering.component';
+import { ModalPaymentComponent } from '../modal-payment/modal-payment.component'
+import { ModalPTpaymentComponent } from '../modal-ptpayment/modal-ptpayment.component'
+
 
 @Component({
   selector: 'app-payment-list',
@@ -13,6 +18,8 @@ import { EMPLOYEE } from '../data';
   styleUrls: ['./payment-list.component.scss']
 })
 export class PaymentListComponent implements OnInit {
+  dialogRef: MdDialogRef<ModalPTpaymentComponent>;
+  dialogRef2: MdDialogRef<ModalPTpaymentComponent>;
   rows: any;
   searchSelect = '';
   search = '';
@@ -25,16 +32,15 @@ export class PaymentListComponent implements OnInit {
   };
 
   columns = [
-    { name: 'Clock-in' },
-    { name: 'Clock-out' },
+    { name: 'ClockInTime' },
+    { name: 'ClockOutTime' },
+    { name: 'Payment' },
     { name: 'Duration' },
-    { name: 'Duration' },
-    { name: 'rate' },
     { name: 'total' }
   ];
 
-  constructor(private dataService: DataService, private router: Router) {
-    this.rows = dataService.getEmployee();
+  constructor(public dialog: MdDialog,private dataService: DataService, private router: Router) {
+    this.rows = dataService.getCLOCK();
 
   }
 
@@ -42,48 +48,34 @@ export class PaymentListComponent implements OnInit {
     this.temp = this.rows;
   }
 
-  searchFilter() {
-    let Tempdata: any[];
-    let temp = [];
-    console.log(this.searchSelect);
-    if (this.searchSelect !== '') {
-      const val = this.searchSelect;
-      console.log(this.temp);
-      Tempdata = _.filter(this.temp, (res) => {
-        console.log(res);
-        return res.type.indexOf(val) !== -1;
-      });
-      temp = _.filter(Tempdata, (res) => {
-        return res.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || res.surname.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || res.email.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || res.telephone.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || res.role.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || !this.search.toLowerCase();
-      });
-    } else {
-      temp = _.filter(this.temp, (res) => {
-        return res.name.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-        || res.surname.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-        || res.email.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-        || res.telephone.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-        || res.role.toLowerCase().indexOf(this.search.toLowerCase()) !== -1
-          || !this.search.toLowerCase();
-      });
-    }
-    this.rows = temp;
-
-  }
-  addss() {
-    console.log(this.rows);
-  }
+  
   edit(row) {
 
-    this.router.navigate(['/employee/edit', EMPLOYEE.indexOf(row)]);
+    this.router.navigate(['/employee/edit', CLOCK.indexOf(row)]);
     console.log(row);
   }
-
-  delete(row) {
-    this.dataService.deleteEmployee(EMPLOYEE.indexOf(row));
-  }
+test(s){
+  console.log(s);
+}
+test2(s){
+  console.log(s);
+}
+openDialog1() {
+  
+      this.dialogRef = this.dialog.open(ModalPTpaymentComponent, {
+        disableClose: false,
+        width: '50%',
+      });; 
+      this.dialogRef.componentInstance.Q = 1;
+      
+    }
+openDialog2() {
+  
+      this.dialogRef2 = this.dialog.open(ModalPTpaymentComponent, {
+        disableClose: false,
+        width: '50%',
+      });; 
+      this.dialogRef2.componentInstance.Q = 2;
+      
+    }
 }

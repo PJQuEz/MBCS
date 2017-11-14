@@ -2,15 +2,18 @@
 <md-divider></md-divider>
 <md-list class="overflow">
   <div class="item-list">
-    <md-list-item *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14]">
+    <md-list-item *ngFor="let i of rows" >
       <md-icon md-list-icon>local_cafe</md-icon>
-      <h4 md-line>{{i}}</h4>
-      <p md-line> {{i}} </p>
+      <h4 md-line (click)="openDialog(i)">{{i.name}}</h4>
+      <p md-line> price: {{i.price}} </p>
+      <p md-line> amount: {{i.amount}} </p>
+    <button (click)="delete(row)">X</button>
+    
     </md-list-item>
   </div>
 </md-list>
 <md-divider></md-divider>
 <div>
-<h5 md-subheader>Total :</h5>
-  
+<button md-button  (click)="openDialog2()" class="md-raised md-primary">Confirm order</button> 
+
 </div>

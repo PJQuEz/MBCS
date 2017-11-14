@@ -24,7 +24,9 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentListComponent } from './payment-list/payment-list.component';
 import { ModalOrderingComponent } from './modal-ordering/modal-ordering.component';
 import { TestComponent } from './test/test.component';
+import { QRCodeComponent } from './qr-code/qr-code.component';
 
+import { ClockOutComponent } from './clock-out/clock-out.component';
 
 
 export const appRoutes: Routes = [
@@ -42,7 +44,7 @@ export const appRoutes: Routes = [
   },
   {
     path: 'ordering',
-    component: TestComponent
+    component: OrderingComponent
   },
   {
     path: 'menu',
@@ -115,6 +117,18 @@ export const appRoutes: Routes = [
   {
     path: 'payment/list/:id',
     component: PaymentListComponent
+  },
+  {
+    path: 'payment/list/3',
+    component: PaymentListComponent
+  },
+  {
+    path: 'qrcode',
+    component: QRCodeComponent
+  }  ,
+  {
+    path: 'clockout',
+    component: ClockOutComponent
   }
 ];
 

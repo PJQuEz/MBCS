@@ -1,0 +1,28 @@
+<md-dialog-content class="header">
+    <span md-dialog-title>Confirm order</span>
+  </md-dialog-content>
+  <md-dialog-content class="body">
+  <br>
+  
+      <form>
+          Total : {{total}}<br><br>
+          <div class="form-group">
+              <label>Table number: </label>
+              <input type="number" min="1" [value]="orderDetails.Table" name="Table" [(ngModel)]="orderDetails.Table" required>
+          </div><br>
+              <!--Begin Amount Select-->
+              <div class="form-group">
+                  <label>Receive cash: </label>
+                  <input type="number" min="1" [value]="orderDetails.Receive" name="Receive" [(ngModel)]="orderDetails.Receive" required>
+              </div>
+              <!--End Amount Select-->
+            </form>
+  </md-dialog-content>
+  <md-dialog-content class="footer">
+  
+  </md-dialog-content>
+  <md-dialog-actions>
+    <button md-button (click)="onNoClick2()" class="md-raised md-primary">Confirm</button> 
+    <button md-button (click)="onNoClick()" class="md-raised md-primary">Cancel</button>
+  </md-dialog-actions>
+  

@@ -1,0 +1,29 @@
+<md-dialog-content class="header">
+    <span md-dialog-title>Part-time Payment</span>
+  </md-dialog-content>
+  <md-dialog-content class="body">
+  <br>
+  
+      <form>
+          <div class="form-group" *ngIf="Q===1">
+              <label>Payment: </label>
+              <input type="number" min="1" [value]="orderDetails.Payment" name="Payment" [(ngModel)]="orderDetails.Payment" required>
+          </div><br>
+              <!--Begin Amount Select-->
+              <div class="form-group" *ngIf="Q===2">
+                  <label>Duration: </label>
+                  <input type="number" min="1" [value]="orderDetails.Duration" name="Duration" [(ngModel)]="orderDetails.Duration" required>
+              </div>
+              <!--End Amount Select-->
+            </form>
+  </md-dialog-content>
+  <md-dialog-content class="footer">
+  
+  </md-dialog-content>
+  <md-dialog-actions>
+    <button md-button *ngIf="Q===1" (click)="edit1()" class="md-raised md-primary">Confirm</button> 
+    <button md-button *ngIf="Q===2" (click)="edit2()" class="md-raised md-primary">Confirm</button> 
+    
+    <button md-button (click)="onNoClick()" class="md-raised md-primary">Cancel</button>
+  </md-dialog-actions>
+  

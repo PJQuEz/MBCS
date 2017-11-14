@@ -51,5 +51,7 @@
 
 </md-dialog-content>
 <md-dialog-actions>
-  <button md-button (click)="login()" class="md-raised md-primary">Login</button>
+  <button md-button *ngIf="Q===1" (click)="add()" class="md-raised md-primary">Confirm</button> 
+  <button md-button *ngIf="Q===2" (click)="edit()" class="md-raised md-primary">Confirm</button> 
+  <button md-button (click)="onNoClick()" class="md-raised md-primary">Cancel</button>
 </md-dialog-actions>
