@@ -55,6 +55,30 @@ export class SideNavComponent implements OnInit {
       name: 'Employee management',
       path: '/employee'
     },
+    {
+      icon: 'view_week',
+      name: 'Ordering',
+      path: '/ordering'
+    },
+    {
+      icon: 'view_week',
+      name: 'Part-time payment',
+      path: '/payment'
+    },
+    {
+      icon: 'view_week',
+      name: 'QR-code',
+      path: '/qrcode'
+    }, 
+    {
+      icon: 'view_week',
+      name: 'Clock-in',
+      path: '/clocking'
+    }, {
+      icon: 'view_week',
+      name: 'Clock-out',
+      path: '/clockout'
+    }
   ];
 
   constructor() { }

@@ -2,6 +2,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HttpModule } from '@angular/http';
+import { AppConfig } from './app.config';
+import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Http, RequestOptions } from '@angular/http';
+
+import { ImageService } from './shared/image.service';
+import { FaceAPIService } from './shared/face-api.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
@@ -34,7 +43,25 @@ import { EditIngredientComponent } from './edit-ingredient/edit-ingredient.compo
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { EditBranchManageComponent } from './edit-branch-manage/edit-branch-manage.component';
 import { EditBranchComponent } from './edit-branch/edit-branch.component';
+import { ClockingComponent } from './clocking/clocking.component';
+import { PaymentComponent } from './payment/payment.component';
+import { PaymentListComponent } from './payment-list/payment-list.component';
+import { ModalOrderingComponent } from './modal-ordering/modal-ordering.component';
+import { TestComponent } from './test/test.component';
+import { ModalPaymentComponent } from './modal-payment/modal-payment.component';
+import { ModalPTpaymentComponent } from './modal-ptpayment/modal-ptpayment.component';
+import { QRCodeComponent } from './qr-code/qr-code.component';
+import { ClockOutComponent } from './clock-out/clock-out.component';
+import { ModalClockingComponent } from './modal-clocking/modal-clocking.component';
 
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: 'Bearer',
+    noJwtError: true,
+    globalHeaders: [{ 'Accept': 'application/json' }],
+    tokenGetter: (() => localStorage.getItem('id_token')),
+  }), http);
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,11 +86,22 @@ import { EditBranchComponent } from './edit-branch/edit-branch.component';
     EditIngredientComponent,
     EditEmployeeComponent,
     EditBranchManageComponent,
-    EditBranchComponent
+    EditBranchComponent,
+    ClockingComponent,
+    PaymentComponent,
+    PaymentListComponent,
+    ModalOrderingComponent,
+    TestComponent,
+    ModalPaymentComponent,
+    ModalPTpaymentComponent,
+    QRCodeComponent,
+    ClockOutComponent,
+    ModalClockingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     BrowserAnimationsModule,
     MaterialModule,
     AppRoutingModule,
@@ -71,9 +109,29 @@ import { EditBranchComponent } from './edit-branch/edit-branch.component';
     NgxDatatableModule,
     Ng2SmartTableModule,
     CdkTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
-  providers: [DataService],
+  entryComponents: [
+    ModalOrderingComponent,
+    ModalPaymentComponent,
+    ModalPTpaymentComponent,
+    ModalClockingComponent
+  ],
+  providers: [
+    {
+      provide: 'AppConfig',
+      useValue: AppConfig
+    },
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http, RequestOptions]
+    },
+    DataService,
+    ImageService,
+    FaceAPIService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,57 @@
+<md-dialog-content class="header">
+  <span md-dialog-title>Order Details</span>
+</md-dialog-content>
+<md-dialog-content class="body">
+<br>
+
+    <form>
+        
+            <!--Begin Grade Select-->
+            <div class="form-group">
+              <div class="radio-group" >
+              <div class="radio-title">Grade: </div>
+                <input type="radio" id="normal" name="grade" value="normal" [(ngModel)]="orderDetails.grade" [checked]="orderDetails.grade === orderDetails.grade">
+                <label for="normal">Normal</label>
+                <input type="radio" id="high" name="grade" value="high" [(ngModel)]="orderDetails.grade" [checked]="orderDetails.grade === orderDetails.grade"
+                />
+                <label for="high">High</label>
+                <input type="radio" id="premium" name="grade" value="premium" [(ngModel)]="orderDetails.grade" [checked]="orderDetails.grade === orderDetails.grade"
+                />
+                <label for="premium">Premium</label>
+              </div>
+            </div>
+            <!--End Grade Select-->
+            <!--Begin Sweet Select-->
+            <div class="form-group">
+              <div class="radio-group">
+              <div class="radio-title">Sweet: </div>
+                <input type="radio" id="sweet_no" name="sweet" value="no" [(ngModel)]="orderDetails.sweet" [checked]="orderDetails.sweet === orderDetails.sweet">
+                <label for="sweet_no">No</label>
+                <input type="radio" id="sweet_low" name="sweet" value="low" [(ngModel)]="orderDetails.sweet" [checked]="orderDetails.sweet === orderDetails.sweet"
+                />
+                <label for="sweet_low">Low</label>
+                <input type="radio" id="sweet_normal" name="sweet" value="normal" [(ngModel)]="orderDetails.sweet" [checked]="orderDetails.sweet === orderDetails.sweet"
+                />
+                <label for="sweet_normal">Normal</label>
+                <input type="radio" id="sweet_high" name="sweet" value="high" [(ngModel)]="orderDetails.sweet" [checked]="orderDetails.sweet === orderDetails.sweet"
+                />
+                <label for="sweet_high">High</label>
+              </div>
+            </div>
+            <!--End Sweet Select-->
+            <!--Begin Amount Select-->
+            <div class="form-group">
+                <label>Amount: </label>
+                <input type="number" min="1" [value]="orderDetails.amount" name="amount" [(ngModel)]="orderDetails.amount" required>
+            </div>
+            <!--End Amount Select-->
+          </form>
+</md-dialog-content>
+<md-dialog-content class="footer">
+
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button *ngIf="Q===1" (click)="add()" class="md-raised md-primary">Confirm</button> 
+  <button md-button *ngIf="Q===2" (click)="edit()" class="md-raised md-primary">Confirm</button> 
+  <button md-button (click)="onNoClick()" class="md-raised md-primary">Cancel</button>
+</md-dialog-actions>
