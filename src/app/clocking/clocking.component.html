@@ -1,10 +1,17 @@
 
-
 <div class="upload-btn-wrapper">
     <button class="btn">Clock-in</button>
-    <input type="file" name="myfile" accept="image/*" capture="camera">
+    <input type="file" name="myfile" accept="image/*" capture="camera" (change)="fileChange($event)">
   </div><br>
 
 <div class="upload-btn-wrapper">
-    <button (click)="openDialog()" class="btn">UPLOAD</button>
+    <button (click)="gp()" class="btn">UPLOAD</button>
 </div>
+
+<!-- <input type="file" (change)="fileChange($event)" placeholder="Upload file" >
+
+<button md-button class="md-raised md-primary" (click)="add()">Add</button>
+<button md-button class="md-raised md-primary" (click)="edit()">Edit</button>
+<button md-button class="md-raised md-primary" (click)="delete()">Delete</button>
+<button md-button class="md-raised md-primary" (click)="cp()">CP</button>
+<button md-button class="md-raised md-primary" (click)="id()">id</button> -->

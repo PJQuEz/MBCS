@@ -11,13 +11,13 @@ export const INGREDIENT = [
     { name: 'Milk', cost: '10', type: 'Normal' }
 ];
 export const EMPLOYEE = [
-    { picture: 'Kum.jpg', name: 'Kum', surname: 'Saa', email: 'Kum@gmail.com', telephone: '0987654321', role: 'Part-time staff' },
-    { picture: 'Tong.jpeg', name: 'Tong', surname: 'Dee', email: 'Tong@gmail.com', telephone: '0123456789', role: 'Cashier' },
+    { picture: '1510704331.jpg', name: 'Patima', surname: 'Samranpong', email: 'Kum@gmail.com', telephone: '0987654321', role: 'Part-time staff', personID: '' },
+    { picture: '1510704523.jpg', name: 'Peerapat', surname: 'Jommanee', email: 'Tong@gmail.com', telephone: '0123456789', role: 'Cashier', personID: '' },
 ];
 
 export const BRANCHMENAGER = [
-    { picture: 'Que.jpg', name: 'Peerapat', surname: 'Jommanee', email: 'Que@gmail.com', telephone: '0987654321', branch: 'Nimman' },
-    { picture: 'Kam.jpg', name: 'Patima', surname: 'Samranpong', email: 'Kam@gmail.com', telephone: '0123456789', branch: 'Mor Chor' },
+    { picture: 'Que.jpg', name: 'Peerapat', surname: 'Jommanee', email: 'Que@gmail.com', telephone: '0987654321', branch: 'Nimman', personId: '' },
+    { picture: 'Kam.jpg', name: 'Patima', surname: 'Samranpong', email: 'Kam@gmail.com', telephone: '0123456789', branch: 'Mor Chor',personID: '' },
 ];
 
 export const BRANCH = [
