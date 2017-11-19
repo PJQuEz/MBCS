@@ -59,7 +59,7 @@
     <br>
     <input type="file"  (change)="test333($event)">
     <md-card class="place-img" >
-      <img md-card-image *ngIf="img2" [src]="'../../assets/image/' + img2">
+      <img md-card-image *ngIf="img2" [src]="'http://139.59.231.135/posrest/public/images/' + img2">
     </md-card>
     <button *ngIf="img2" md-button (click)="deletePic(Imggg.id)" class="md-raised md-primary">X</button>
   

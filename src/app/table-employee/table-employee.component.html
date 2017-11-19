@@ -21,7 +21,7 @@
               </ng-template>
               <ng-template let-value="value" *ngIf="s.name === 'picture'" ngx-datatable-cell-template>
                 <md-card class="place-img">
-                  <img md-card-image [src]="'../../assets/image/' + value">
+                  <img md-card-image [src]="'http://139.59.231.135/posrest/public/images/' + value">
                 </md-card>
               </ng-template>
               <ng-template let-value="value" *ngIf="s.name !== 'picture'" ngx-datatable-cell-template>

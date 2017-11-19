@@ -7,14 +7,15 @@ let endpoints = {
     routes: '/api/routes',
     stations: '/api/stations',
     schedule: '/api/schedules',
-    image: '/api/images'
+    image: '/api/images',
+    ingredient: '/api/ingredient'
 
 };
 
 if (window && (window.location.hostname === 'localhost' || /0\.0\./.test(window.location.hostname))) {
     for (let e in endpoints) {
         if (endpoints.hasOwnProperty(e)) {
-            endpoints[e] = `http://139.59.231.135/map/public${endpoints[e]}`;
+            endpoints[e] = `http://139.59.231.135/posrest/public${endpoints[e]}`;
         }
     }
 } else {

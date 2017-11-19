@@ -65,7 +65,7 @@ export class ManageMenuComponent implements OnInit {
   }
   addToBack($event: any) {
     const newProduct: Product2 = $event.dragData;
-    const answer = prompt('Hello');
+    const answer = prompt('Amount');
     // tslint:disable-next-line:radix
     const num1 = parseInt(answer);
     if (answer) {

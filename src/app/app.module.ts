@@ -10,6 +10,8 @@ import { Http, RequestOptions } from '@angular/http';
 
 import { ImageService } from './shared/image.service';
 import { FaceAPIService } from './shared/face-api.service';
+import { IngredientService } from './shared/ingredient.service';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
@@ -130,7 +132,8 @@ export function getAuthHttp(http) {
     },
     DataService,
     ImageService,
-    FaceAPIService
+    FaceAPIService,
+    IngredientService
   ],
   bootstrap: [AppComponent]
 })

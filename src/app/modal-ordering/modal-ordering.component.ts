@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { SELECTED } from '../data';
@@ -16,10 +16,12 @@ export class ModalOrderingComponent implements OnInit {
   selectedItem: any;
   rows: any;
   Q: any;
+  name;
 
   constructor(
     private dialogRef: MdDialogRef<any>,
-    private dataService: DataService, private router: Router) { this.rows = dataService.getSELECTED(); }
+    private dataService: DataService, private router: Router,
+    ) { this.rows = dataService.getSELECTED(); }
 
   ngOnInit() {
     this.initializeItems();
