@@ -69,7 +69,7 @@ export class SideNavComponent implements OnInit {
       icon: 'view_week',
       name: 'QR-code',
       path: '/qrcode'
-    }, 
+    },
     {
       icon: 'view_week',
       name: 'Clock-in',
@@ -78,6 +78,21 @@ export class SideNavComponent implements OnInit {
       icon: 'view_week',
       name: 'Clock-out',
       path: '/clockout'
+    },
+    {
+      icon: 'view_week',
+      name: 'Work Force',
+      path: '/workforce'
+    },
+    {
+      icon: 'view_week',
+      name: 'Report',
+      path: '/report'
+    },
+    {
+      icon: 'view_week',
+      name: 'Profiling',
+      path: '/profiling'
     }
   ];
 

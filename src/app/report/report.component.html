@@ -1,0 +1,125 @@
+<div class="container">
+  <md-list>
+    <h1 md-subheader>
+      <md-icon>add</md-icon> Add Menu
+    </h1>
+  </md-list>
+  <hr>
+  <br>
+  <md-select placeholder="Detail" [(ngModel)]="p.dType">
+    <md-option *ngFor="let type of dTypes" [value]="type.value">
+      {{ type.name }}
+    </md-option>
+  </md-select>
+  <md-select *ngIf="p.dType" placeholder="Time period" [(ngModel)]="p.tType">
+    <md-option *ngFor="let type of tTypes" [value]="type.value">
+      {{ type.name }}
+    </md-option>
+  </md-select>
+
+  <input *ngIf="p.tType=='Daily'" type="date" [(ngModel)]="day" (change)="getByDate()">
+  <input *ngIf="p.tType=='Weekly'" type="week" [(ngModel)]="week" (change)="getByWeek()">
+  <input *ngIf="p.tType=='Monthly'" type="month" [(ngModel)]="month" (change)="getByMonth()">
+  <input *ngIf="p.tType=='Period'" type="date" [(ngModel)]="sPeriod" (change)="getByDate()">
+  <input *ngIf="p.tType=='Period'" type="date" [(ngModel)]="ePeriod" (change)="getByDate()">
+
+  <md-select *ngIf="p.tType" placeholder="Type" [(ngModel)]="p.tbType">
+    <md-option *ngFor="let type of tbTypes" [value]="type.value">
+      {{ type.name }}
+    </md-option>
+  </md-select>
+  <button *ngIf="p.tbType" md-raised-button id="Continue" class="button-width" color="primary" (click)="test()"> Show report </button>
+
+
+  <br>
+  <br>
+  <!-- Table Reprot -->
+
+  <ngx-datatable #table class='material' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+    [rowHeight]="'auto'" [limit]="10" [rows]='rows' [messages]="messages">
+
+    <ngx-datatable-column *ngFor=" let s of columns " [name]="s.name">
+      <ng-template let-sort="sortFn" ngx-datatable-header-template>
+        <span (click)="sort()">{{s.name}} </span>
+      </ng-template>
+      <ng-template let-value="value" *ngIf="s.name === 'picture'" ngx-datatable-cell-template>
+        <md-card class="place-img">
+          <img md-card-image [src]="'../../assets/image/' + value">
+        </md-card>
+      </ng-template>
+      <ng-template let-value="value" *ngIf="s.name !== 'picture'" ngx-datatable-cell-template>
+        <div>{{value}}</div>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Edit">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button md-raised-button id="Continue" class="button-width" color="primary" (click)="edit(row)"> Edit </button>
+      </ng-template>
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Delete">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button md-raised-button id="Continue" class="button-width" color="primary" (click)="delete(row)"> Delete </button>
+      </ng-template>
+    </ngx-datatable-column>
+
+  </ngx-datatable>
+
+</div>
+
+<!-- Graph Reprot -->
+
+<hr>
+<div class="super-card--container">
+  <md-card class="super-card" *ngFor="let class of ['white']">
+    <div class="super-card--header">
+      <div class="cover {{ class }}">
+        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+        <br>
+      </div>
+    </div>
+    <div class="super-card--tools">
+    </div>
+    <div class="super-card--content">
+    </div>
+    <div class="super-card--footer">
+      Percentage of menu’s selling.
+    </div>
+  </md-card>
+  <md-card class="super-card" *ngFor="let class of ['white']">
+    <div class="super-card--header">
+      <div class="cover {{ class }}">
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+          [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        <br>
+      </div>
+    </div>
+    <div class="super-card--tools">
+    </div>
+    <div class="super-card--content">
+    </div>
+    <div class="super-card--footer">
+      Total income of each menu.
+    </div>
+  </md-card>
+</div>
+<div class="super-card--container">
+  <md-card class="super-card" *ngFor="let class of ['white']">
+    <div class="super-card--header">
+      <div class="cover {{ class }}">
+        <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        <br>
+      </div>
+    </div>
+    <div class="super-card--tools">
+    </div>
+    <div class="super-card--content">
+    </div>
+    <div class="super-card--footer">
+      <md-icon>warning</md-icon> Get More Space...
+    </div>
+  </md-card>
+</div>

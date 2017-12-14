@@ -27,7 +27,9 @@ import { TestComponent } from './test/test.component';
 import { QRCodeComponent } from './qr-code/qr-code.component';
 
 import { ClockOutComponent } from './clock-out/clock-out.component';
-
+import { WorkforceComponent } from './workforce/workforce.component';
+import { ReportComponent } from './report/report.component';
+import { ProfilingComponent } from './profiling/profiling.component';
 
 export const appRoutes: Routes = [
   {
@@ -129,6 +131,18 @@ export const appRoutes: Routes = [
   {
     path: 'clockout',
     component: ClockOutComponent
+  },
+  {
+    path: 'workforce',
+    component: WorkforceComponent
+  }  ,
+  {
+    path: 'report',
+    component: ReportComponent
+  },
+  {
+    path: 'profiling',
+    component: ProfilingComponent
   }
 ];
 

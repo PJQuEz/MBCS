@@ -8,7 +8,8 @@ let endpoints = {
     stations: '/api/stations',
     schedule: '/api/schedules',
     image: '/api/images',
-    ingredient: '/api/ingredient'
+    ingredient: '/api/ingredient',
+    reportsell: '/api/report/selling'
 
 };
 

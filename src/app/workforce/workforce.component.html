@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="super-card--container">
+        <md-card class="super-card" >
+          <div class="super-card--header">
+            <div class="cover">
+            </div>
+          </div>
+          <div class="super-card--tools">
+          </div>
+          <div class="super-card--content">
+            <a href="#" class="title">Cozy 5 Stars Apartment</a>
+            <p class="content">The place is close to Barceloneta Beach and bus stop just 2 min by walk and...</p>
+          </div>
+          <div class="super-card--footer">
+            <md-icon>warning</md-icon>  Get More Space...
+          </div>
+        </md-card>
+      </div>
+
+
+
+    <div >
+        <div class="status-card--container">
+          <md-card class="status-card">
+            <div class="status-card--icon orange">
+              <md-icon>accessibility</md-icon>
+            </div>
+            <div class="status-card--header">
+              <h1 class="detail">Active</h1>
+            </div>
+            <div class="status-card--footer" dnd-droppable (onDropSuccess)="addToBasket($event)" [dropZones]="['demo2']">
+              <div class="panel-body">
+                <div *ngFor="let product of availableProducts" class="panel panel-default " dnd-draggable [dragData]="product" (onDragSuccess)="orderedProduct($event)"
+                  [dropZones]="['demo1']">
+                  <div class="test">
+                    {{product.name}} ({{product.type}}) \${{product.cost}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </md-card>
+    
+          <md-card class="status-card">
+            <div class="status-card--icon blue">
+              <md-icon>accessible</md-icon>
+            </div>
+            <div class="status-card--header">
+                <h1 class="detail">Part-time</h1>
+            </div>
+            <div class="status-card--footer" dnd-droppable (onDropSuccess)="addToBack($event)" [dropZones]="['demo1']">
+              <div class="panel-body">
+                <div dnd-draggable [dragEnabled]="true" [dragData]="product" [dropZones]="['demo2']" (onDragSuccess)="backProduct($event)"
+                  *ngFor="let product of shoppingBasket" class="panel panel-default">
+                  <div class="test">
+                    {{product.name}} ({{product.type}}) (Amount: {{product.quantity}} Cost: \${{product.cost * product.quantity}})
+                  </div>
+                </div>
+              </div>
+            </div>
+          </md-card>
+        </div>
+      </div>
+</div>

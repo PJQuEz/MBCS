@@ -1,5 +1,11 @@
 <div class="container">
-    
-     <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=300x300" alt="" title="HELLO"
-       width="300" height="300" />
-   </div>
+
+  <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=300x300" alt="" title="HELLO"
+    width="300" height="300" />
+  <br>
+
+  <input type="date" [(ngModel)]="day" (change)="getByDate()">
+  <input type="week" [(ngModel)]="week" (change)="getByWeek()">
+  <input type="month" [(ngModel)]="month"(change)="getByMonth()">
+  <br>
+</div>

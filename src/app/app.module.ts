@@ -11,7 +11,7 @@ import { Http, RequestOptions } from '@angular/http';
 import { ImageService } from './shared/image.service';
 import { FaceAPIService } from './shared/face-api.service';
 import { IngredientService } from './shared/ingredient.service';
-
+import { ReportService } from './shared/report.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
@@ -20,6 +20,7 @@ import { DndModule } from 'ng2-dnd';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { CdkTableModule } from '@angular/cdk';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
@@ -55,6 +56,9 @@ import { ModalPTpaymentComponent } from './modal-ptpayment/modal-ptpayment.compo
 import { QRCodeComponent } from './qr-code/qr-code.component';
 import { ClockOutComponent } from './clock-out/clock-out.component';
 import { ModalClockingComponent } from './modal-clocking/modal-clocking.component';
+import { WorkforceComponent } from './workforce/workforce.component';
+import { ReportComponent } from './report/report.component';
+import { ProfilingComponent } from './profiling/profiling.component';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -98,7 +102,10 @@ export function getAuthHttp(http) {
     ModalPTpaymentComponent,
     QRCodeComponent,
     ClockOutComponent,
-    ModalClockingComponent
+    ModalClockingComponent,
+    WorkforceComponent,
+    ReportComponent,
+    ProfilingComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +119,7 @@ export function getAuthHttp(http) {
     Ng2SmartTableModule,
     CdkTableModule,
     ReactiveFormsModule,
-    
+    ChartsModule
   ],
   entryComponents: [
     ModalOrderingComponent,
@@ -133,7 +140,8 @@ export function getAuthHttp(http) {
     DataService,
     ImageService,
     FaceAPIService,
-    IngredientService
+    IngredientService,
+    ReportService
   ],
   bootstrap: [AppComponent]
 })
